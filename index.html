@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test technical code</title>
+
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <div>
+    <input type="text" id="myInput" />
+    <button id="tri">Generate segitiga</button>
+    <button id="odd">Generate bilangan ganjil</button>
+    <button id="prime">Generate bilangan prima</button>
+  </div>
+  <div>
+    <h1>Result</h1>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    $("#tri").click(function() {
+      $.ajax({
+        url: 'http://localhost:3000/generate-segitiga',
+        type: "post",
+        data: {
+          input: $("#myInput").val()
+        },
+        success: function() {
+
+        }
+      })
+    })
+    $("#odd").click(function() {
+      $.ajax({
+        url: 'http://localhost:3000/generate-ganjil',
+        type: "post",
+        data: {
+          input: $("#myInput").val()
+        },
+        success: function({data}) {
+          console.log(data)
+        }
+      })
+    })
+    $("#prime").click(function() {
+      $.ajax({
+        url: 'http://localhost:3000/generate-prime',
+        type: "post",
+        data: {
+          input: $("#myInput").val()
+        },
+        success: function({data}) {
+          console.log(data)
+        }
+      })
+    })
+  </script>
+</body>
+</html>
